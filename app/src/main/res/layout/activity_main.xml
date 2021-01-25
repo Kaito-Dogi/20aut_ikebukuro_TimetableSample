@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EF810F"
+    android:background="@color/viewColorBackground"
     tools:context=".MainActivity">
 
     <TextView
@@ -19,80 +18,165 @@
         app:layout_constraintStart_toEndOf="@+id/prevButton"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/classTextView1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
         android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/classTextView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/dayTextView" />
 
-    <TextView
+    <EditText
         android:id="@+id/classTextView2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
         android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/classTextView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/classTextView1" />
 
-    <TextView
+    <EditText
         android:id="@+id/classTextView3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
         android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/classTextView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/classTextView2" />
 
-    <TextView
+    <EditText
         android:id="@+id/classTextView4"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
         android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/classTextView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/classTextView3" />
 
-    <TextView
+    <EditText
         android:id="@+id/classTextView5"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:text="TextView"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/classTextView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/classTextView4" />
+
+    <EditText
+        android:id="@+id/classTextView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
         android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classTextView4" />
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/classTextView5" />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:backgroundTint="#ef5350"
         android:text="→"
+        android:textColor="@color/viewColorBackground"
         android:textSize="36sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dayTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dayTextView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/dayTextView" />
 
     <Button
         android:id="@+id/prevButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:backgroundTint="#8d6e63"
         android:text="←"
+        android:textColor="@color/viewColorBackground"
         android:textSize="36sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dayTextView"
         app:layout_constraintEnd_toStartOf="@+id/dayTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="1時間目"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/classTextView1"
+        app:layout_constraintEnd_toStartOf="@+id/classTextView1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="2時間目"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/classTextView2"
+        app:layout_constraintEnd_toStartOf="@+id/classTextView2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="3時間目"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/classTextView3"
+        app:layout_constraintEnd_toStartOf="@+id/classTextView3"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="4時間目"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/classTextView4"
+        app:layout_constraintEnd_toStartOf="@+id/classTextView4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="5時間目"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/classTextView5"
+        app:layout_constraintEnd_toStartOf="@+id/classTextView5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="6時間目"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/classTextView6"
+        app:layout_constraintEnd_toStartOf="@+id/classTextView6"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

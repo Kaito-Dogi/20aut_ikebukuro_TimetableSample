@@ -4,6 +4,8 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,21 +18,21 @@ class MainActivity : AppCompatActivity() {
 
     //背景色のリスト。
     val backgroundList: List<Int> = listOf(
-        Color.parseColor("#EF810F"),
-        Color.parseColor("#CB4042"),
-        Color.parseColor("#ACDBDA"),
-        Color.parseColor("#4D8169"),
-        Color.parseColor("#EFBF3D"),
-        Color.parseColor("#B1643B"))
+        Color.parseColor("#ffa726"),
+        Color.parseColor("#ef5350"),
+        Color.parseColor("#29b6f6"),
+        Color.parseColor("#66bb6a"),
+        Color.parseColor("#ffeb3b"),
+        Color.parseColor("#8d6e63"))
 
     //授業のリスト。
     var classList: MutableList<MutableList<String>> = mutableListOf(
-        mutableListOf("国語", "数学", "英語", "理科", "社会"),
-        mutableListOf("数学", "英語", "理科", "社会", "国語"),
-        mutableListOf("英語", "理科", "社会", "国語", "数学"),
-        mutableListOf("理科", "社会", "国語", "数学", "英語"),
-        mutableListOf("社会", "国語", "数学", "英語", "理科"),
-        mutableListOf("家庭科", "技術", "音楽", "美術", "総合"))
+        mutableListOf("国語", "数学", "英語", "理科", "", ""),
+        mutableListOf("数学", "英語", "理科", "社会", "国語", ""),
+        mutableListOf("英語", "理科", "社会", "国語", "", ""),
+        mutableListOf("理科", "社会", "国語", "数学", "英語", ""),
+        mutableListOf("社会", "国語", "数学", "英語", "", ""),
+        mutableListOf("家庭科", "技術", "音楽", "美術", "総合", ""))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         //月曜日の時、戻るボタンを押せなくする。
         if (dayNum == 0) {
             prevButton.isEnabled = false
+            prevButton.visibility = View.INVISIBLE
         }
 
         //進むボタンをクリックした時の処理。
@@ -51,16 +54,21 @@ class MainActivity : AppCompatActivity() {
 
             //戻るボタンを押せるようにする。
             prevButton.isEnabled = true
-
-            //背景色を設定。
-            background.backgroundTintList = ColorStateList.valueOf(backgroundList[dayNum])
+            prevButton.visibility = View.VISIBLE
 
             //時間割を表示する。
             display(dayNum, classList[dayNum])
 
+            //ボタンの背景色を設定。
+            prevButton.backgroundTintList = ColorStateList.valueOf(backgroundList[dayNum-1])
+            if (dayNum != 5) {
+                nextButton.backgroundTintList = ColorStateList.valueOf(backgroundList[dayNum+1])
+            }
+
             //土曜日の時、進むボタンを押せないようにする。
             if (dayNum == 5) {
                 nextButton.isEnabled = false
+                nextButton.visibility = View.INVISIBLE
             }
         }
 
@@ -71,16 +79,21 @@ class MainActivity : AppCompatActivity() {
 
             //進むボタンを押せるようにする。
             nextButton.isEnabled = true
-
-            //背景色を設定。
-            background.backgroundTintList = ColorStateList.valueOf(backgroundList[dayNum])
+            nextButton.visibility = View.VISIBLE
 
             //時間割を表示する。
             display(dayNum, classList[dayNum])
 
+            //ボタンの背景色を設定。
+            nextButton.backgroundTintList = ColorStateList.valueOf(backgroundList[dayNum+1])
+            if (dayNum != 0) {
+                prevButton.backgroundTintList = ColorStateList.valueOf(backgroundList[dayNum-1])
+            }
+
             //月曜日の時、戻るボタンを押せなくする。
             if (dayNum == 0) {
                 prevButton.isEnabled = false
+                prevButton.visibility = View.INVISIBLE
             }
         }
     }
@@ -88,11 +101,12 @@ class MainActivity : AppCompatActivity() {
     //時間割を表示する。
     fun display(dayNum: Int, classList: MutableList<String>){
         dayTextView.text = dayList[dayNum]
-        classTextView1.text = classList[0]
-        classTextView2.text = classList[1]
-        classTextView3.text = classList[2]
-        classTextView4.text = classList[3]
-        classTextView5.text = classList[4]
+        classTextView1.setText(classList[0])
+        classTextView2.setText(classList[1])
+        classTextView3.setText(classList[2])
+        classTextView4.setText(classList[3])
+        classTextView5.setText(classList[4])
+        classTextView6.setText(classList[5])
     }
 
 
